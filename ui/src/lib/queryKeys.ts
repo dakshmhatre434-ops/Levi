@@ -194,4 +194,18 @@ export const queryKeys = {
   adapters: {
     all: ["adapters"] as const,
   },
+  research: {
+    dashboard: (companyId: string) => ["research", "dashboard", companyId] as const,
+    sessions: (companyId: string) => ["research", "sessions", companyId] as const,
+    session: (companyId: string, sessionId: string) =>
+      ["research", "sessions", companyId, sessionId] as const,
+    tasks: (companyId: string, sessionId: string) =>
+      ["research", "tasks", companyId, sessionId] as const,
+    findings: (companyId: string, taskId: string) =>
+      ["research", "findings", companyId, taskId] as const,
+    sources: (companyId: string, sessionId: string) =>
+      ["research", "sources", companyId, sessionId] as const,
+    memory: (companyId: string, sessionId: string) =>
+      ["research", "memory", companyId, sessionId] as const,
+  },
 };

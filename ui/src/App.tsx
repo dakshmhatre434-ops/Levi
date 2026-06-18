@@ -48,6 +48,10 @@ import { AdapterManager } from "./pages/AdapterManager";
 import { PluginPage } from "./pages/PluginPage";
 import { OrgChart } from "./pages/OrgChart";
 import { NewAgent } from "./pages/NewAgent";
+import { AgentAnalytics } from "./pages/AgentAnalytics";
+import { ResearchDashboard } from "./pages/ResearchDashboard";
+import { ResearchSessions } from "./pages/ResearchSessions";
+import { ResearchSessionDetail } from "./pages/ResearchSessionDetail";
 import { AuthPage } from "./pages/Auth";
 import { BoardClaimPage } from "./pages/BoardClaim";
 import { CliAuthPage } from "./pages/CliAuth";
@@ -119,6 +123,9 @@ function boardRoutes() {
       <Route path="execution-workspaces/:workspaceId/routines" element={<ExecutionWorkspaceDetail />} />
       <Route path="goals" element={<Goals />} />
       <Route path="goals/:goalId" element={<GoalDetail />} />
+      <Route path="research" element={<ResearchDashboard />} />
+      <Route path="research/sessions" element={<ResearchSessions />} />
+      <Route path="research/sessions/:sessionId" element={<ResearchSessionDetail />} />
       <Route path="approvals" element={<Navigate to="/approvals/pending" replace />} />
       <Route path="approvals/pending" element={<Approvals />} />
       <Route path="approvals/all" element={<Approvals />} />

@@ -52,6 +52,11 @@ export {
   type UpsertSidebarOrderPreference,
 } from "./sidebar-preferences.js";
 export {
+  resourceMembershipStateSchema,
+  updateResourceMembershipSchema,
+  type UpdateResourceMembership,
+} from "./resource-memberships.js";
+export {
   companySkillSourceTypeSchema,
   companySkillTrustLevelSchema,
   companySkillCompatibilitySchema,
@@ -439,3 +444,27 @@ export {
   type SetPluginState,
   type ListPluginState,
 } from "./plugin.js";
+
+export {
+  researchSessionStatusSchema,
+  researchTaskStatusSchema,
+  researchFindingConfidenceSchema,
+  researchDepthSchema,
+  researchSourceSnippetSchema,
+  researchSubtopicSchema,
+  researchPlanSchema,
+  createResearchSessionSchema,
+  updateResearchSessionSchema,
+  createResearchTaskSchema,
+  updateResearchTaskSchema,
+  createResearchFindingSchema,
+  markDuplicateSchema,
+  createResearchMemorySchema,
+  type CreateResearchSession,
+  type UpdateResearchSession,
+  type CreateResearchTask,
+  type UpdateResearchTask,
+  type CreateResearchFinding,
+  type MarkDuplicate,
+  type CreateResearchMemory,
+} from "./research.js";

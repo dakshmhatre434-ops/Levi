@@ -42,10 +42,25 @@ export { classifyIssueGraphLiveness, type IssueLivenessFinding } from "./recover
 export { dashboardService } from "./dashboard.js";
 export { sidebarBadgeService } from "./sidebar-badges.js";
 export { sidebarPreferenceService } from "./sidebar-preferences.js";
+export { resourceMembershipService, type ResourceMembershipPolicyHook } from "./resource-memberships.js";
 export { inboxDismissalService } from "./inbox-dismissals.js";
 export { accessService } from "./access.js";
+export {
+  backfillPrincipalAccessCompatibility,
+  ensureHumanRoleDefaultGrants,
+  insertMissingPrincipalGrants,
+  type PrincipalAccessCompatibilityBackfillStats,
+} from "./principal-access-compatibility.js";
+export { authorizationService } from "./authorization.js";
+export type {
+  AuthorizationAction,
+  AuthorizationActor,
+  AuthorizationDecision,
+  AuthorizationResource,
+} from "./authorization.js";
 export { boardAuthService } from "./board-auth.js";
 export { instanceSettingsService } from "./instance-settings.js";
+export { cloudUpstreamService, reconcileCloudUpstreamRunsOnStartup } from "./cloud-upstreams.js";
 export { companyPortabilityService } from "./company-portability.js";
 export { environmentService } from "./environments.js";
 export { executionWorkspaceService } from "./execution-workspaces.js";
@@ -56,3 +71,8 @@ export { notifyHireApproved, type NotifyHireApprovedInput } from "./hire-hook.js
 export { publishLiveEvent, subscribeCompanyLiveEvents } from "./live-events.js";
 export { reconcilePersistedRuntimeServicesOnStartup, restartDesiredRuntimeServicesOnStartup } from "./workspace-runtime.js";
 export { createStorageServiceFromConfig, getStorageService } from "../storage/index.js";
+export { researchService } from "./research.js";
+export { researchEngine } from "./research-engine.js";
+export { createSearchProvider, MockSearchProvider, SerperSearchProvider, SemanticScholarSearchProvider } from "./research-search.js";
+export { generateResearchPlan, extractFindingsFromContent, generateResearchReport } from "./research-llm.js";
+export { researchProgressService } from "./research-progress.js";

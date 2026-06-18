@@ -603,6 +603,11 @@ export const LIVE_EVENT_TYPES = [
   "plugin.ui.updated",
   "plugin.worker.crashed",
   "plugin.worker.restarted",
+  "research.session.status",
+  "research.task.updated",
+  "research.finding.created",
+  "research.source.processing",
+  "research.finding.progress",
 ] as const;
 export type LiveEventType = (typeof LIVE_EVENT_TYPES)[number];
 
@@ -739,6 +744,11 @@ export const PLUGIN_CAPABILITIES = [
   "activity.read",
   "costs.read",
   "issues.orchestration.read",
+  "access.members.read",
+  "access.invites.read",
+  "authorization.grants.read",
+  "authorization.policies.read",
+  "authorization.audit.read",
   "database.namespace.read",
   // Data Write
   "issues.create",
@@ -756,6 +766,10 @@ export const PLUGIN_CAPABILITIES = [
   "agents.resume",
   "agents.invoke",
   "agents.managed",
+  "access.members.write",
+  "access.invites.write",
+  "authorization.grants.write",
+  "authorization.policies.write",
   "agent.sessions.create",
   "agent.sessions.list",
   "agent.sessions.send",
@@ -857,6 +871,7 @@ export const PLUGIN_UI_SLOT_TYPES = [
   "commentAnnotation",
   "commentContextMenuItem",
   "settingsPage",
+  "companySettingsPage",
 ] as const;
 export type PluginUiSlotType = (typeof PLUGIN_UI_SLOT_TYPES)[number];
 
@@ -886,6 +901,21 @@ export const PLUGIN_RESERVED_COMPANY_ROUTE_SEGMENTS = [
 ] as const;
 export type PluginReservedCompanyRouteSegment =
   (typeof PLUGIN_RESERVED_COMPANY_ROUTE_SEGMENTS)[number];
+
+/**
+ * Reserved route segments under `/:companyPrefix/company/settings/...` that
+ * plugin company settings pages may not claim.
+ */
+export const PLUGIN_RESERVED_COMPANY_SETTINGS_ROUTE_SEGMENTS = [
+  "general",
+  "environments",
+  "access",
+  "members",
+  "invites",
+  "secrets",
+] as const;
+export type PluginReservedCompanySettingsRouteSegment =
+  (typeof PLUGIN_RESERVED_COMPANY_SETTINGS_ROUTE_SEGMENTS)[number];
 
 /**
  * Launcher placement zones describe where a plugin-owned launcher can appear
@@ -1070,8 +1100,54 @@ export type PluginEventType = (typeof PLUGIN_EVENT_TYPES)[number];
 export const PLUGIN_BRIDGE_ERROR_CODES = [
   "WORKER_UNAVAILABLE",
   "CAPABILITY_DENIED",
+  "INVOCATION_SCOPE_DENIED",
   "WORKER_ERROR",
   "TIMEOUT",
   "UNKNOWN",
 ] as const;
 export type PluginBridgeErrorCode = (typeof PLUGIN_BRIDGE_ERROR_CODES)[number];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Research Agent Constants
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const RESEARCH_SESSION_STATUSES = [
+  "planning",
+  "running",
+  "cancelling",
+  "paused",
+  "completed",
+  "failed",
+  "cancelled",
+] as const;
+export type ResearchSessionStatus = (typeof RESEARCH_SESSION_STATUSES)[number];
+
+export const RESEARCH_TASK_STATUSES = [
+  "pending",
+  "running",
+  "completed",
+  "failed",
+  "skipped",
+] as const;
+export type ResearchTaskStatus = (typeof RESEARCH_TASK_STATUSES)[number];
+
+export const RESEARCH_FINDING_CONFIDENCES = [
+  "high",
+  "medium",
+  "low",
+] as const;
+export type ResearchFindingConfidence = (typeof RESEARCH_FINDING_CONFIDENCES)[number];
+
+export const RESEARCH_DEPTHS = [
+  "shallow",
+  "medium",
+  "deep",
+] as const;
+export type ResearchDepth = (typeof RESEARCH_DEPTHS)[number];
+
+export const DEFAULT_RESEARCH_DEPTH: ResearchDepth = "medium";
+export const DEFAULT_RESEARCH_MAX_SUBTOPICS = 5;
+export const MIN_RESEARCH_MAX_SUBTOPICS = 1;
+export const MAX_RESEARCH_MAX_SUBTOPICS = 20;
+export const MAX_RESEARCH_QUERY_LENGTH = 2000;
+export const MAX_RESEARCH_TITLE_LENGTH = 200;

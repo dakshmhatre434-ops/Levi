@@ -327,6 +327,14 @@ export type {
 } from "./user-profile.js";
 export type { SidebarBadges } from "./sidebar-badges.js";
 export type { SidebarOrderPreference } from "./sidebar-preferences.js";
+export type {
+  ResourceMembershipResourceType,
+  ResourceMembershipState,
+  ResourceMemberships,
+  ResourceMembershipUpdateResult,
+  UpdateResourceMembership,
+} from "./resource-memberships.js";
+export { RESOURCE_MEMBERSHIP_STATES } from "./resource-memberships.js";
 export type { InboxDismissal } from "./inbox-dismissal.js";
 export type {
   AccessUserProfile,
@@ -424,3 +432,31 @@ export type {
   PluginDatabaseNamespaceMode,
   PluginDatabaseNamespaceStatus,
 } from "./plugin.js";
+
+export type {
+  ResearchSession,
+  ResearchSessionListItem,
+  ResearchSessionDetail,
+  ResearchTask,
+  ResearchTaskListItem,
+  ResearchFinding,
+  ResearchFindingListItem,
+  ResearchSource,
+  ResearchSourceSnippet,
+  ResearchMemory,
+  ResearchReport,
+  ResearchPlan,
+  ResearchSubtopic,
+  CreateResearchSessionRequest,
+  UpdateResearchSessionRequest,
+  CreateResearchTaskRequest,
+  UpdateResearchTaskRequest,
+  CreateResearchFindingRequest,
+  MarkDuplicateRequest,
+  CreateResearchMemoryRequest,
+  ResearchDashboardSummary,
+  ResearchSessionStatus,
+  ResearchTaskStatus,
+  ResearchFindingConfidence,
+  ResearchDepth,
+} from "./research.js";
